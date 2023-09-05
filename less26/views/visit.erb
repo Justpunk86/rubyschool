@@ -1,0 +1,43 @@
+<h2>Записаться</h2>
+
+<form action="/visit" method="post" role="form">
+  <div>
+    <label>Выбрать парикмахера</label> <br>
+	  <select name="hairdresser" class="form-select" >
+
+	  <option ></option>
+	  <option >Walter White</option>
+	  <option >Jessie Pinkman</option>
+	  <option >Gus Fring</option>
+		</select>
+	</div>
+	<br>
+  
+  <div class="mb-3">
+    <label>Ваше имя</label>
+    <input name="username" type="text" class="form-control" placeholder="Ввести имя" value="<%=@username%>">
+  </div>
+  <div class="mb-3">
+    <label>Ваш телефон</label>
+    <input name="phone" type="text" class="form-control" placeholder="Ввести телефон" value="<%=@phone%>">
+  </div>
+	<div class="mb-3">
+    <label>Дата и время</label>
+    <input name="datetime" type="text" class="form-control" placeholder="Ввести дату и время" value="<%=@datetime%>">
+  </div>
+
+  <select name="color" id="color">
+    <option >Green</option>
+    <option >Blue</option>
+  </select>
+  <br>
+  
+  <button type="submit" class="btn btn-primary">Записаться</button>
+</form>
+
+<script type="text/javascript">
+  $(function(){
+    $('#color').simplecolorpicker();
+  });
+  
+</script>
