@@ -5,6 +5,24 @@ require 'pony'
 require 'sqlite3'
 
 configure do
+  db = SQLite3::Database.new './db/barbershop.sqlite'
+  #db = get_db
+  db.execute 'create table if not exists
+              users(
+              id integer primary key autoincrement,
+              username text,
+              phone text,
+              datestamp text,
+              barber text,
+              color text
+              );'
+  db.execute 'create table if not exists
+              contacts(
+              id integer primary key autoincrement,
+              email text,
+              message text
+              );'
+  db.close
 end
 
 helpers do
@@ -51,10 +69,14 @@ def put_file hh
   redirect to hh[:red_to]
 end
 
+def get_db
+  return SQLite3::Database.new './db/barbershop.sqlite'
+end
+
 def put_db hh
-  db = SQLite3::Database.open './db/barbershop.sqlite'
+  db = get_db
   
-  db.execute hh[:dml_ex]
+  db.execute hh[:dml_ex], hh[:arr_val]
   db.close
   redirect to hh[:red_to]
 end
@@ -82,45 +104,24 @@ post '/visit' do
           :phone => 'Введите телефон',
           :datetime => 'Введите дату и время'
           }
-=begin          
-#для каждой пары ключ-значение
-hhe.each do |key,value|
-  #если параметр пустой
-  if params[key] == ''
-    #переменной еррор присвоить значение хеша
-    @error = hhe[key]
-    #вернуть представление визит
-    return erb:visit
-  end
-=end
 
+#для каждой пары ключ-значение
+#если параметр пустой
+#переменной еррор присвоить значение хеша
 @error = hhe.select {|key,_| params[key] == ""}.values.join(",")
 
+#вернуть представление визит
 if @error != ''
   return erb:visit
 end
 
-#end
 dml = "insert into users(name,phone,datestamp,barber,color)
-      values('#{@name}', 
-              '#{@phone}', 
-              '#{@datetime}', 
-              '#{@barber}', 
-              '#{@color}');"
-
-  #str = "Hairdresser: #{@hairdresser}, " +
-  #        "Name: #{@username}, " +
-  #        "Telephone: #{@phone}, " +
-  #        "Date and dimte: #{@datetime}\n"
+        values(?,?,?,?,?);"
+arr_values = [@name, @phone, @datetime, @barber, @color]
 
   red_to = '/visit'
 
-  #put_file :fname => "./public/users.txt", 
-  #          :type =>'a', 
-  #          :row => str,
-  #          :red_to => red_to
-
-  put_db :dml_ex => dml, :red_to => red_to
+  put_db :dml_ex => dml, :arr_val => arr_values, :red_to => red_to
     
 end
 
@@ -132,25 +133,19 @@ post '/contacts' do
   @email = params['mail']
   @text = params['text']
 
-  #str = "Email: #{@email}, " +
-  #  "Message: #{@text} \n"
-
   dml = "insert into contacts(email,message)
-      values('#{@email}', '#{@text}');"
+      values(?, ?);"
+  arr_values = [@email, @text]
 
   red_to = '/contacts'
 
-  put_db :dml_ex => dml, :red_to => red_to
+  put_db :dml_ex => dml, :arr_val => arr_values, :red_to => red_to
 
  # Pony.mail(:to => "ermachkovsavictory12@gmail.com",
   #          :from => "#{@email}",
    #         :subject => "ruby school less24 hw",
     #        :body => "#{@text}")
 
-  #put_file :fname => "./public/contacts.txt", 
-  #          :type => 'a', 
-  #          :row => str,
-  #          :red_to => red_to
-
-
 end
+
+
