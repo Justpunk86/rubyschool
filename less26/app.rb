@@ -69,7 +69,7 @@ get '/visit' do
 end
 
 post '/visit' do
-  @hairdresser = params['hairdresser']
+  @barber = params['barber']
   @username = params['username']
   @phone = params['phone']
   @datetime = params['datetime']
@@ -105,7 +105,7 @@ dml = "insert into users(name,phone,datestamp,barber,color)
       values('#{@name}', 
               '#{@phone}', 
               '#{@datetime}', 
-              '#{@hairdresser}', 
+              '#{@barber}', 
               '#{@color}');"
 
   #str = "Hairdresser: #{@hairdresser}, " +

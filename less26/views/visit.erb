@@ -3,15 +3,15 @@
 <form action="/visit" method="post" role="form">
   <div>
     <label>Выбрать парикмахера</label> <br>
-	  <select name="hairdresser" class="form-select" >
+    <select name="barber" class="form-select" >
 
-	  <option ></option>
-	  <option >Walter White</option>
-	  <option >Jessie Pinkman</option>
-	  <option >Gus Fring</option>
-		</select>
-	</div>
-	<br>
+    <option <%= @barber == '' ? 'selected' : ''%>></option>
+    <option <%= @barber == 'Walter White' ? 'selected' : ''%>>Walter White</option>
+    <option <%= @barber == 'Jessie Pinkman' ? 'selected' : ''%>>Jessie Pinkman</option>
+    <option <%= @barber == 'Gus Fring' ? 'selected' : ''%>>Gus Fring</option>
+    </select>
+  </div>
+  <br>
   
   <div class="mb-3">
     <label>Ваше имя</label>
