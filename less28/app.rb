@@ -62,11 +62,25 @@ post '/new' do
   erb "You typed #{@content}"
 end  
 
+# вывод инфо о посте
+
 get '/comments/:post_id' do
+#получаем переменную из url`a
   post_id = params[:post_id]
 
+#получаем данные для поста
   results = @db.execute 'select * from posts where id = ?', [post_id]
   @row = results[0]
+
+#возвращаем представление commetns.erb
   erb :comments
   #erb "#{post_id} comments"
+end
+
+post '/comments/:post_id' do
+  post_id = params[:post_id]
+
+  comment = params[:comment]
+
+  erb "You typed comment '#{comment}' for post #{post_id}"
 end
