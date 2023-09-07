@@ -27,6 +27,14 @@ configure do
     created_date date,
     content text
   )'
+  @db.execute 'create table if not exists 
+  comments
+  (
+    id integer primary key autoincrement,
+    created_date date,
+    content text,
+    post_id integer
+  )'
 end
 
 get '/' do
@@ -80,7 +88,9 @@ end
 post '/comments/:post_id' do
   post_id = params[:post_id]
 
-  comment = params[:comment]
+  content = params[:content]
 
-  erb "You typed comment '#{comment}' for post #{post_id}"
+  #@db.execute
+
+  erb "You typed comment '#{content}' for post #{post_id}"
 end
