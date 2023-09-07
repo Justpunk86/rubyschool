@@ -61,3 +61,12 @@ post '/new' do
 
   erb "You typed #{@content}"
 end  
+
+get '/comments/:post_id' do
+  post_id = params[:post_id]
+
+  results = @db.execute 'select * from posts where id = ?', [post_id]
+  @row = results[0]
+  erb :comments
+  #erb "#{post_id} comments"
+end
