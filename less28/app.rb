@@ -57,5 +57,7 @@ post '/new' do
   values (?, datetime())',
   [@content]
 
+  redirect to '/'
+
   erb "You typed #{@content}"
 end  

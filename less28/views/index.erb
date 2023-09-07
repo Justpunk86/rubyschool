@@ -2,7 +2,8 @@
 <% @results.each do |post| %>
 
 	<%= post['content'] %> <br>
-	<%= post['created_date'] %>
+	<%= post['created_date'] %> <br>
+	<a href="/post/<%= post['id'] %>" >Comments</a>
 	<hr>
 
 <% end %>
