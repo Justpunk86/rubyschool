@@ -80,6 +80,9 @@ get '/comments/:post_id' do
   results = @db.execute 'select * from posts where id = ?', [post_id]
   @row = results[0]
 
+#выбираем комментарии для поста
+  @comments = @db.execute 'select * from comments where post_id = ? order by id', [post_id]
+
 #возвращаем представление commetns.erb
   erb :comments
   #erb "#{post_id} comments"
