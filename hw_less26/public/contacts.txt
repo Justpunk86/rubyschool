@@ -1,0 +1,5 @@
+Email: myaddress@myhost.mh, Message:   	Hello! 
+Email: myaddress@myhost.mh, Message:   	Hello! 
+Email: myaddress@myhost.mh, Message:   	Hello! 
+Email: se@jrdev.com, Message:  Hello! I`ts my first app on Ruby on Sinatra 
+Email: se@jrdev.com, Message: Hello! 
