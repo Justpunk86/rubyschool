@@ -1,5 +1,8 @@
 /hw_less26/vendor/
 /less28/vendor/
+**/vendor/
+**/LICENSE
+**/README.md
 **/**.db
 **/db/
 hw_less26/LICENSE

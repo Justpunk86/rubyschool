@@ -1,0 +1,14 @@
+<p>
+	<h2>add new post dude;)</h2>
+</p>
+
+
+<form action="/new" method="post">
+	author:</br>
+	<input class="form-control" type="text" name="author" value="<%= @author %>"> </br>
+	post text:</br>
+	<textarea class="form-control" type="text" name="content" value="<%= @content %>" rows="10"></textarea>
+</br>
+<button type="submit" value="Create" class="btn btn-primary">Create</button>
+
+</form>

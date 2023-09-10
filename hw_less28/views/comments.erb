@@ -1,0 +1,25 @@
+<h1>Post </h1></br>
+
+		<%= @post_data['author'] %> </br>
+		<%= @post_data['content'] %></br>
+		<%= @post_data['date_created'] %></br>
+		<hr>
+
+<% @comments.each do |comment| %>
+	<%= comment['author'] %> </br>
+		<%= comment['content'] %></br>
+		<%= comment['date_created'] %></br>
+		<hr>
+<%end%>
+
+
+<form action="/comments/<%=@post_data['id'] %>" method="post">
+
+	author:</br>
+	<input class="form-control" type="text" name="author" value="<%= @author %>"> </br>
+	post text:</br>
+	<textarea class="form-control" type="text" name="content" value="<%= @content %>" rows="10"></textarea>
+</br>
+<button type="submit" value="comment" class="btn btn-primary">leave comment</button>	
+
+</form>

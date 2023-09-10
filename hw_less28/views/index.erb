@@ -1,0 +1,12 @@
+My home work - my first site !
+
+<h1>TOP 3 posts by super stars author: </h1></br>
+
+<% @posts.each do |post| %>
+	<%= post['author'] %> </br>
+	<%= post['content'] %></br>
+	<%= post['date_created'] %><br>
+	<a href="/comments/<%=post['id'] %>">Comments</a></br>
+<hr>
+
+<% end %>
