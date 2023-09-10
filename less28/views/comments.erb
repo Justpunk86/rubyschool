@@ -1,0 +1,26 @@
+<br> <br>
+<h4>Post comments</h4>
+<p>
+	<%= @row['author'] %> <br> <br>
+	<%= @row['content'] %> <br> <br>
+	<%= @row['created_date'] %> <br><br>
+	
+</p>
+
+<h4>Comments:</h4>
+
+<% @comments.each do |comment| %>
+	<p>
+		<%= comment['content'] %> </br>
+		<span style="font-size: 75%; color:#999">Added at <%= comment['created_date'] %> by <%= comment['author'] %></span> </br>
+	</p>
+	<hr>
+<% end %>
+
+<p>
+	<form action="/comments/<%= @row['id'] %>" method="post"	>
+		<textarea name="content" class="form-control" rows="6" placeholder="Type comment here"></textarea>
+		<br>
+		<button type="submit" class="btn btn-primary">Add comment</button>
+	</form>
+</p>
