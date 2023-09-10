@@ -138,16 +138,16 @@ post '/visit' do
 #для каждой пары ключ-значение
 #если параметр пустой
 #переменной еррор присвоить значение хеша
-@error = hhe.select {|key,_| params[key] == ""}.values.join(",")
+  @error = hhe.select {|key,_| params[key] == ""}.values.join(",")
 
 #вернуть представление визит
-if @error != ''
-  return erb:visit
-end
+  if @error != ''
+    return erb:visit
+  end
 
-dml = "insert into users(name,phone,datestamp,barber,color)
+  dml = "insert into users(name,phone,datestamp,barber,color)
         values(?,?,?,?,?);"
-arr_values = [@username, @phone, @datetime, @barber, @color]
+  arr_values = [@username, @phone, @datetime, @barber, @color]
 
   red_to = '/visit'
 

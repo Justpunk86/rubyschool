@@ -25,7 +25,8 @@ configure do
   (
     id integer primary key autoincrement,
     created_date date,
-    content text
+    content text,
+    author text
   )'
   @db.execute 'create table if not exists 
   comments
@@ -53,17 +54,23 @@ end
 
 post '/new' do
   @content = params[:content]
-  
+  @author = params[:author]
 
-  if @content.length <= 0
-    @error = 'Type post text'
+  hh = {
+    :content => 'Введите текст поста',
+    :author => 'Введите имя автора'
+  }
+
+  @error = hh.select { |key,_| params[key] == "" }.values.join(",")
+
+  if @error != ''
     return erb :new
   end
 
   @db.execute 'insert into posts 
-  (content, created_date)
-  values (?, datetime())',
-  [@content]
+  (content, author, created_date)
+  values (?, ?, datetime())',
+  [@content], [@author]
 
   redirect to '/'
 
