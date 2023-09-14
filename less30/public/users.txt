@@ -1,0 +1,8 @@
+Hairdresser: 2, Name: Sergey, Telephone: 111-222, Date and dimte: 04.09.2023 12:00
+Hairdresser: Выбрать парикмахера, Name: Sergey, Telephone: 111-222, Date and dimte: 04.09.2023 14:00Hairdresser: Выбрать парикмахера, Name: Sergey, Telephone: 111-222, Date and dimte: 04.09.2023 15:00
+Hairdresser: Gus Fring, Name: Sergey, Telephone: 111-222, Date and dimte: 04.09.2023 15:00
+Hairdresser: Выбрать парикмахера, Name: , Telephone: , Date and dimte: 
+Hairdresser: Выбрать парикмахера, Name: , Telephone: , Date and dimte: 
+Hairdresser: Выбрать парикмахера, Name: Sergey, Telephone: 111-222, Date and dimte: 04.09.2023 12:00
+Hairdresser: Walter White, Name: Sergey, Telephone: 111-222, Date and dimte: 04.09.2023 12:00
+Hairdresser: Walter White, Name: Sergey, Telephone: 111-222, Date and dimte: 04.09.2023 14:00
