@@ -1,0 +1,9 @@
+<br>
+<% @p.each do |post| %>
+	<p>
+	<%= post.content %><br>
+	<%= post.id %><br>
+	<a href="/post/<%= post.id %>">commets</a>
+	</p>
+	<hr>
+<% end %>

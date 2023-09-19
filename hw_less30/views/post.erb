@@ -1,0 +1,21 @@
+<p><h2>Post #<%=@p.id %></h2></p>
+<p>
+	<%= @p.content %><br>
+	Created at <%= @p.updated_at %> by author <%= @p.author %><br> 
+	<form action="/new_comment/<%=@p.id %>" method="get">
+			<button type="submit" class="btn btn-primary" value="new_comment">new comment</button>
+	</form>
+</p>
+<hr>
+<h4>comments:</h4>
+<% @c.each do |comment| %>
+	<p>
+		<%= comment.content %><br>
+		<%= comment.created_at %>
+		by <%= comment.author %>
+		<form action="/del/<%=comment.id%>" method="post">
+			<button type="submit" class="btn btn-primary" value="delete">delete</button>
+		</form>
+		<hr>
+	</p>
+<% end %>

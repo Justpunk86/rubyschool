@@ -1,0 +1,25 @@
+<br>
+<% @p.each do |post| %>
+	<div class="layer-one">
+	<%= post.content %><br>
+	<%= post.id %><br>
+		<div class="layer-two">
+				<h4>comments:</h4>
+			<% @c.each do |comment| %>
+				<p>
+					<% if comment.post_id == post.id %>
+					<%= comment.content %><br>
+					<%= comment.created_at %>
+					by <%= comment.author %>
+
+					<form action="/del/<%=comment.id%>" method="post">
+						<button type="submit" class="btn btn-primary" value="delete">delete</button>
+					</form>
+					<hr>
+					<% end %>
+				</p>
+			<% end %>
+		</div>
+	</div>
+	<hr>
+<% end %>

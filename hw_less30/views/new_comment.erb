@@ -1,0 +1,16 @@
+<p>
+	post_id=<%=@p.id %>
+</p>
+<form action="/new_comment/<%=@p.id %>" method="post">
+
+	<p>
+		author:<br>
+		<input class="form-control" type="text" name="comment[author]">
+	</p>
+	<p>
+		text post:<br>
+		<textarea class="form-control" type="text" name="comment[content]" rows="5"></textarea>
+	</p>
+	<br>
+	<button type="submit" class="btn btn-primary" value="save">clack comments</button>
+</form>	
