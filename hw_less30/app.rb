@@ -100,7 +100,7 @@ post '/del/:id' do
 	@c.delete
 	@c.save
 	session[:identity] = params['username']
-  where_user_came_from = session[:previous_url] || '/'
+  where_user_came_from = session[:previous_url] || '/comments'
   redirect to where_user_came_from
 	#redirect to "/post/#{@c[:post_id]}"
 end
