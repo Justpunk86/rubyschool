@@ -1,0 +1,41 @@
+<div id="cart">
+		<h4>Cart is:</h4>
+		<p>
+			<div class="container">
+				<% @hh_orders.each do |key,value| %>
+						<% @pizza.each do |p| %>
+							<% if p.id == key %>
+								<div class="row">
+									<div class="col-md-3">
+										<%= p.title %>
+									</div>
+									
+									<div class="col-md-3">
+										<%= value %>
+									</div>
+								</div>
+							<% end %>
+						<% end %>
+				<% end %>
+			</div>
+		</p>
+
+
+		<h2>Confirm order, clinet contact and address: </h2>
+		<form action="/order" method="post">
+			Poducts in order:<br>
+			<input type="text" name="final_order" value="<%=@text_hh%>"><br>
+
+			
+			Client name:<br>
+			<input type="text" name="client[name]"><br>
+			Client phone:<br>
+			<input type="text" name="client[phone]"><br>
+			Client address:<br>
+			<input type="text" name="client[address]"><br><br>
+			<input type="submit" name="complete" class="btn btn-primary" value="To order" onclick=empty_cart()>
+			<button class="btn btn-danger" onclick="return empty_cart()">Cancel</button><br>
+		</form>
+
+</div>
+

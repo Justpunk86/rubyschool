@@ -1,0 +1,12 @@
+<p>
+	<% @full_order_details.each do |row| %>
+	<p>
+		<%= row.id %><br>
+		<%= row.title %><br>
+			<%= row.price %><br>
+			<%= row.size %><br>
+			<%= row.qty %><br>
+		<hr>
+	</p>
+	<% end %>
+</p>

@@ -16,10 +16,11 @@
     
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
-    <!-- My js -->
+    <!-- My js css -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js">
     </script>
     <script src="app.js" ></script>
+    <link rel="stylesheet" href="/app.css">
     
   </head>
   <body>
@@ -41,6 +42,14 @@
 						</li>
 					</ul>
 				</div>
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<form action="/cart" method="post">
+							<input id="orders_input" type="hidden" name="orders">
+							<input id="orders_btn" type="submit" value="Cart (...)" />
+						</form>
+					</li>
+				</ul>
 			</nav>
 
 			<div>
@@ -51,7 +60,14 @@
 			</div>
 
 		</div>
-    
+	<p>
+		<script type="text/javascript">
+			upd_orders_input();
+			upd_orders_btn();
+			get_total_qty();
+			get_cart_orders();
+		</script>
+	</p>    
     
   </body>
 </html>
