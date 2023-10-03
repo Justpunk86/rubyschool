@@ -16,7 +16,7 @@ class ArticlesController < ApplicationController
       @article.save
       redirect_to @article#new_article_path
     else
-      render action: "new"
+      render action: 'new'
     end
     
   end
@@ -31,16 +31,19 @@ class ArticlesController < ApplicationController
 
   def update
     article = Article.find(params[:id]) 
-    article.update article_params
-    article.save
 
-    redirect_to article#edit_article_path
+# Метод апдейт выполняется валидацию
+# автоматически, проверка валид? не требуется
+    if article.update article_params
+      redirect_to article#new_article_path
+    else
+      render action: 'edit'
+    end
   end
 
   def destroy
     article = Article.find(params[:id])
     article.delete
-    article.save
 
     redirect_to articles_path
   end
