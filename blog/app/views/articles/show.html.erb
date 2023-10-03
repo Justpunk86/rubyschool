@@ -13,5 +13,8 @@
 	<%= form_for :article, url: "#{articles_path}/#{@article.id}/edit", method: :get, data: {turbo: false} do |f| %>
 		<%= f.submit 'Edit article'%>
 	<% end %>
+	<%= form_for :article, url: articles_path, method: :get, data: {turbo: false} do |f| %>
+		<%= f.submit 'GO to articles list'%>
+<% end %>
 
 

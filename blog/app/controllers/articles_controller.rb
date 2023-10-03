@@ -14,7 +14,7 @@ class ArticlesController < ApplicationController
 
     if @article.valid?
       @article.save
-      redirect_to new_article_path
+      redirect_to @article#new_article_path
     else
       render action: "new"
     end
@@ -34,7 +34,7 @@ class ArticlesController < ApplicationController
     article.update article_params
     article.save
 
-    redirect_to edit_article_path
+    redirect_to article#edit_article_path
   end
 
   def destroy
