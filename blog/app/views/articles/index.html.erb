@@ -1,0 +1,21 @@
+<h1>Article archive</h1>
+
+<% @articles.each do |article| %>
+
+	Title:<br>
+	<%= article.title %><br>
+	Text:<br>
+	<input type="text" name="text" value="<%= article.text %>" size="50*30">
+	<br>
+	<%= form_for :article, url: "#{articles_path}/#{article.id}", method: :delete, data: {turbo: false} do |f| %>
+		<%= f.submit 'Delete article'%>
+	<% end %>
+	<%= form_for :article, url: "#{articles_path}/#{article.id}/edit", method: :get, data: {turbo: false} do |f| %>
+		<%= f.submit 'Edit article'%>
+	<% end %>
+	<%= form_for :article, url: "#{articles_path}/#{article.id}", method: :get, data: {turbo: false} do |f| %>
+		<%= f.submit 'Show article'%>
+	<% end %>
+	<hr>
+
+<% end %>

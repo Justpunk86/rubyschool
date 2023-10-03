@@ -1,0 +1,12 @@
+<h1>Edit article</h1>
+
+
+<%= form_for :article, url: "#{articles_path}/#{@article.id}", method: "PUT", data: {turbo: false} do |f|%>
+	<%= f.text_field :text, size: '80', value: @article.title %><br>
+	<%= f.text_area :text, size: '100x30', value: @article.text %><br>
+	<%= f.submit 'Save changes'%><br>
+<% end %>
+<%= form_for :article, url: articles_path, method: :get, data: {turbo: false} do |f| %>
+		<%= f.submit 'GO to articles list'%>
+<% end %>
+

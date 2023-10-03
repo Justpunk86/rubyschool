@@ -1,0 +1,17 @@
+
+
+	Title:<br>
+	<%= @article.title %><br>
+	Text:<br>
+	<textarea type="text" name="text" rows="30" cols="100">
+		<%= @article.text %>
+	</textarea>
+	<br>
+	<%= form_for :article, url: "#{articles_path}/#{@article.id}", method: :delete, data: {turbo: false} do |f| %>
+		<%= f.submit 'Delete article'%>
+	<% end %>
+	<%= form_for :article, url: "#{articles_path}/#{@article.id}/edit", method: :get, data: {turbo: false} do |f| %>
+		<%= f.submit 'Edit article'%>
+	<% end %>
+
+
