@@ -10903,3 +10903,125 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.1ms | Allocations: 17511)
 
 
+Started GET "/" for 127.0.0.1 at 2023-10-06 12:02:40 +0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 111)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:15
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 16728)
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.3ms | Allocations: 18444)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2023-10-06 12:02:43 +0500
+Processing by Devise::SessionsController#destroy as TURBO_STREAM
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.1ms | Allocations: 2015)
+
+
+  
+NoMethodError (undefined method `for' for #<Devise::ParameterSanitizer:0x00007faf11bbcb38 @auth_keys=[:email], @params=#<ActionController::Parameters {"_method"=>"delete", "controller"=>"devise/sessions", "action"=>"destroy"} permitted: false>, @resource_name=:user, @permitted={:sign_in=>[:email, :password, :remember_me], :sign_up=>[:email, :password, :password_confirmation, :username, :email, :password, :password_confirmation, :remember_me], :account_update=>[:email, :password, :password_confirmation, :current_password]}>):
+  
+app/controllers/application_controller.rb:9:in `configure_permitted_parameters'
+Started GET "/" for 127.0.0.1 at 2023-10-06 12:03:31 +0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 10)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:15
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 17889)
+Completed 200 OK in 12ms (Views: 10.1ms | ActiveRecord: 0.5ms | Allocations: 19213)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2023-10-06 12:03:36 +0500
+Processing by Devise::SessionsController#destroy as TURBO_STREAM
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms | Allocations: 1990)
+
+
+  
+NoMethodError (undefined method `for' for #<Devise::ParameterSanitizer:0x00007faef1ce4120 @auth_keys=[:email], @params=#<ActionController::Parameters {"_method"=>"delete", "controller"=>"devise/sessions", "action"=>"destroy"} permitted: false>, @resource_name=:user, @permitted={:sign_in=>[:email, :password, :remember_me], :sign_up=>[:email, :password, :password_confirmation, :username, :email, :password, :password_confirmation, :remember_me], :account_update=>[:email, :password, :password_confirmation, :current_password]}>):
+  
+app/controllers/application_controller.rb:8:in `configure_permitted_parameters'
+Started GET "/" for 127.0.0.1 at 2023-10-06 12:03:45 +0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:15
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 3204)
+Completed 200 OK in 5ms (Views: 4.8ms | ActiveRecord: 0.1ms | Allocations: 3466)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-06 12:04:47 +0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 10)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:15
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 16983)
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 0.6ms | Allocations: 18305)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2023-10-06 12:04:50 +0500
+Processing by Devise::SessionsController#destroy as TURBO_STREAM
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms | Allocations: 2024)
+
+
+  
+NoMethodError (undefined method `for' for #<Devise::ParameterSanitizer:0x00007faef1cdf468 @auth_keys=[:email], @params=#<ActionController::Parameters {"_method"=>"delete", "controller"=>"devise/sessions", "action"=>"destroy"} permitted: false>, @resource_name=:user, @permitted={:sign_in=>[:email, :password, :remember_me, :login, :username, :email, :password, :remember_me], :sign_up=>[:email, :password, :password_confirmation, :username, :email, :password, :password_confirmation, :remember_me], :account_update=>[:email, :password, :password_confirmation, :current_password]}>):
+  
+app/controllers/application_controller.rb:11:in `configure_permitted_parameters'
+Started GET "/" for 127.0.0.1 at 2023-10-06 12:05:48 +0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 10)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:15
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 17040)
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 0.6ms | Allocations: 18361)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2023-10-06 12:05:52 +0500
+Processing by Devise::SessionsController#destroy as TURBO_STREAM
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 3ms (ActiveRecord: 0.1ms | Allocations: 2192)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-06 12:05:52 +0500
+Processing by HomeController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | Allocations: 2509)
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.0ms | Allocations: 2818)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-10-06 12:05:54 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 584)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 2138)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 4433)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.0ms | Allocations: 5617)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-10-06 12:06:45 +0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.3ms | Allocations: 234)
+  Rendered devise/shared/_links.html.erb (Duration: 2.8ms | Allocations: 156)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 9.5ms | Allocations: 2112)
+  Rendered layout layouts/application.html.erb (Duration: 18.9ms | Allocations: 15242)
+Completed 200 OK in 35ms (Views: 22.2ms | ActiveRecord: 1.6ms | Allocations: 19069)
+
+
