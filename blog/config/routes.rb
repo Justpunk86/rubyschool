@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  #delete '/users/sign_out' => 'devise/sessions#destroy'
   root to: "home#index"
   get '/' => 'home#index'
   #get 'home/index'
