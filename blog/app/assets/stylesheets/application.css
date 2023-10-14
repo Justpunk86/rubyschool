@@ -20,3 +20,18 @@
 .field_with_errors textarea{
 	border-color: red;
 }
+
+.sign_out {
+	text-align: right;
+}
+
+.weswap-current,
+.weswap-new {
+	display: inline-block;
+	height: 200px;
+	margin:10px 40px;
+	padding: 5px;
+	overflow: hidden;
+	overflow-y: scroll;
+	width: 200px;
+}

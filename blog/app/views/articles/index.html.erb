@@ -1,11 +1,11 @@
-<h1>Article archive</h1>
+<h2>Article archive</h2>
 
 <% @articles.each do |article| %>
 
 	Title:<br>
 	<%= article.title %><br>
 	Text:<br>
-	<input type="text" name="text" value="<%= article.text %>" size="50*30">
+	<textarea type="text" name="text" rows="10" cols="50"><%= article.text %></textarea>
 	<br>
 	<%= form_for :article, url: "#{articles_path}/#{article.id}", method: :delete, data: {turbo: false} do |f| %>
 		<%= f.submit 'Delete article'%>

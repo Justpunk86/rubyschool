@@ -1,49 +1,82 @@
+	<div class="container">
+		<div class="row">
+			<div class="col-md-10">
+				<h3><%= @article.title %></h3><br>
+			</div>
+		</div>
+			
+		<div class="row">
+			<div class="col-md-12">
+				<%= @article.text %><br>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-4">
+				<%= form_for :article, url: "#{articles_path}/#{@article.id}", method: :delete, data: {turbo: false} do |f| %>
+					<%= f.submit 'Delete article'%>
+				<% end %>
+			</div>
 
-<h2>Article:</h2>
-	Title:<br>
-	<%= @article.title %><br>
-	Text:<br>
-	<textarea type="text" name="text" rows="30" cols="100">
-		<%= @article.text %>
-	</textarea>
-	<br>
+			<div class="col-md-4">
+				<%= form_for :article, url: "#{articles_path}/#{@article.id}/edit", method: :get, data: {turbo: false} do |f| %>
+					<%= f.submit 'Edit article'%>
+				<% end %>
+			</div>
 
-	<%= form_for :article, url: "#{articles_path}/#{@article.id}", method: :delete, data: {turbo: false} do |f| %>
-		<%= f.submit 'Delete article'%>
-	<% end %>
-	<%= form_for :article, url: "#{articles_path}/#{@article.id}/edit", method: :get, data: {turbo: false} do |f| %>
-		<%= f.submit 'Edit article'%>
-	<% end %>
-	<%= form_for :article, url: articles_path, method: :get, data: {turbo: false} do |f| %>
-		<%= f.submit 'GO to articles list'%>
-	<% end %>
+			<div class="col-md-4">
+				<%= form_for :article, url: articles_path, method: :get, data: {turbo: false} do |f| %>
+					<%= f.submit 'GO to articles list'%>
+				<% end %>
+				<br>
+			</div>
+		</div>
 
-	<h3>Comments:</h3>
-	<% @article.comments.each do |comment| %>
-		<p>
-			Author: 
-			<%= comment.author %><br>
-			Text: 
-			<%= comment.body %><br>
-			<hr>
-		</p>
-	<% end %>
+	
+	</div>
+<h3>Comments:</h3>
+<div class="container">
+	
+		
+			<% @article.comments.each do |comment| %>
+				
+				<div class="row">
+					<div class="col-md-1">
+						<%= comment.author %>:
+					</div>
+					<div class="col-md-11">
+						<%= comment.body %>
+					</div>
+					<hr>
+				</div>			
+			<% end %>
+	
+</div>
 
-	<h3>Leave new comment:</h3>
+
+	
+
+	
+		<h3>Leave new comment:</h3>
 
 	<%= form_for([@article, @article.comments.build]) do |f| %>
 		<p>
 			<%= f.label :author %><br>
-			<%= f.text_field :author %>
+			<%= f.text_field :author, value: current_user.username%>
+			<input type="hidden" name=:author value="<%= current_user.username %>">
 		</p>
 		<p>
 			<%= f.label :body %><br>
-			<%= f.text_area :body, size: '100x10' %>
+			<%= f.text_area :body, size: '30x10' %>
 		</p>
 		<p>
 			<%=	f.submit 'Leave comment' %>
 		</p>
 	<% end %>
+
+	
+
+	
 
 	
 
