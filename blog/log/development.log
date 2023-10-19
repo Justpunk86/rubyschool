@@ -15184,3 +15184,44 @@ Processing by ContactsController#new as HTML
 Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.0ms | Allocations: 3568)
 
 
+Started GET "/articles/" for 127.0.0.1 at 2023-10-19 21:01:57 +0500
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (12.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:3
+  Rendered articles/index.html.erb within layouts/application (Duration: 19.0ms | Allocations: 5283)
+  Rendered layout layouts/application.html.erb (Duration: 21.2ms | Allocations: 7607)
+Completed 200 OK in 24ms (Views: 8.7ms | ActiveRecord: 13.3ms | Allocations: 9537)
+
+
+Started GET "/art" for 127.0.0.1 at 2023-10-19 21:02:02 +0500
+  
+ActionController::RoutingError (No route matches [GET] "/art"):
+  
+Started GET "/users/" for 127.0.0.1 at 2023-10-19 21:02:59 +0500
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-10-19 21:03:09 +0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.5ms | Allocations: 234)
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 602)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 5.1ms | Allocations: 3545)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 5871)
+Completed 200 OK in 16ms (Views: 8.6ms | ActiveRecord: 0.5ms | Allocations: 11685)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-10-19 21:03:22 +0500
+Processing by Devise::RegistrationsController#new as */*
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 78)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1413)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | Allocations: 3647)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.0ms | Allocations: 4179)
+
+
