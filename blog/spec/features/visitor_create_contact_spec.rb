@@ -5,6 +5,6 @@ feature "Contact Creation" do
   scenario "allows access to contacts page" do 
     visit '/contacts'
 
-    expect(page).to have_content 'Contacts'
+    expect(page).to have_content 'Contacts us'
   end
 end    
