@@ -1346,3 +1346,100 @@ Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms | Allocations: 2881)
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/contacts" for 127.0.0.1 at 2023-10-19 21:21:01 +0500
+Processing by ContactsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/new.html.erb within layouts/application
+  Rendered contacts/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 2181)
+  Rendered layout layouts/application.html.erb (Duration: 69.3ms | Allocations: 34718)
+Completed 200 OK in 74ms (Views: 70.4ms | ActiveRecord: 0.0ms | Allocations: 39756)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/contacts" for 127.0.0.1 at 2023-10-19 21:21:01 +0500
+Processing by ContactsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/new.html.erb within layouts/application
+  Rendered contacts/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 722)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 2223)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms | Allocations: 2435)
+Started POST "/contacts" for 127.0.0.1 at 2023-10-19 21:21:01 +0500
+Processing by ContactsController#create as HTML
+  Parameters: {"contact"=>{"name"=>"temp", "phone"=>"111", "email"=>"guest@example.com", "message"=>"someting"}, "commit"=>"Send message"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mContact Create (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("name", "phone", "email", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "temp"], ["phone", "111"], ["email", "guest@example.com"], ["message", "someting"], ["created_at", "2023-10-19 16:21:02.004067"], ["updated_at", "2023-10-19 16:21:02.004067"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering contacts/create.html.erb within layouts/application
+  Rendered contacts/create.html.erb within layouts/application (Duration: 0.1ms | Allocations: 101)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | Allocations: 1598)
+Completed 200 OK in 6ms (Views: 1.0ms | ActiveRecord: 0.4ms | Allocations: 7860)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-10-19 21:21:02 +0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.2ms | Allocations: 235)
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 599)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 3363)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 4854)
+Completed 200 OK in 8ms (Views: 4.0ms | ActiveRecord: 0.2ms | Allocations: 10334)
+Started POST "/users" for 127.0.0.1 at 2023-10-19 21:21:02 +0500
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"user"=>{"email"=>"guest@example.com", "username"=>"temp", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "guest@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["email", "guest@example.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2023-10-19 16:21:02.023819"], ["updated_at", "2023-10-19 16:21:02.023819"], ["username", "temp"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 303 See Other in 5ms (ActiveRecord: 0.2ms | Allocations: 3172)
+Started GET "/" for 127.0.0.1 at 2023-10-19 21:21:02 +0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 104)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 2290)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms | Allocations: 2896)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Create (0.1ms)[0m  [1m[32mINSERT INTO "articles" ("title", "text", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Lorem Ipsum"], ["text", "Article text"], ["created_at", "2023-10-19 16:21:02.042541"], ["updated_at", "2023-10-19 16:21:02.042541"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mArticle Create (0.1ms)[0m  [1m[32mINSERT INTO "articles" ("title", "text", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Article title"], ["text", "Article text"], ["created_at", "2023-10-19 16:21:02.044054"], ["updated_at", "2023-10-19 16:21:02.044054"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("author", "body", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["author", "mike"], ["body", "comment body 1"], ["article_id", 1], ["created_at", "2023-10-19 16:21:02.047586"], ["updated_at", "2023-10-19 16:21:02.047586"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mComment Create (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("author", "body", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["author", "mike"], ["body", "comment body 2"], ["article_id", 1], ["created_at", "2023-10-19 16:21:02.048414"], ["updated_at", "2023-10-19 16:21:02.048414"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mComment Create (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("author", "body", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["author", "mike"], ["body", "comment body 3"], ["article_id", 1], ["created_at", "2023-10-19 16:21:02.048964"], ["updated_at", "2023-10-19 16:21:02.048964"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ? ORDER BY "comments"."id" DESC LIMIT ?[0m  [["article_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
