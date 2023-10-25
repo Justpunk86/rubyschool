@@ -42,3 +42,30 @@ Migrating to CreateImages (20231025073327)
   [1m[36mTRANSACTION (142.6ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "Lorem"], ["created_at", "2023-10-25 07:40:27.611944"], ["updated_at", "2023-10-25 07:40:27.611944"]]
+  [1m[36mTRANSACTION (116.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = ? AND "comments"."commentable_type" = ?[0m  [["commentable_id", 1], ["commentable_type", "Post"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("content", "commentable_type", "commentable_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Comment one"], ["commentable_type", "Post"], ["commentable_id", 1], ["created_at", "2023-10-25 07:41:11.346760"], ["updated_at", "2023-10-25 07:41:11.346760"]]
+  [1m[36mTRANSACTION (108.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("content", "commentable_type", "commentable_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Comment two"], ["commentable_type", "Post"], ["commentable_id", 1], ["created_at", "2023-10-25 07:41:46.632363"], ["updated_at", "2023-10-25 07:41:46.632363"]]
+  [1m[36mTRANSACTION (104.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mImage Create (0.3ms)[0m  [1m[32mINSERT INTO "images" ("url", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["url", "1.jpg"], ["created_at", "2023-10-25 07:42:37.366353"], ["updated_at", "2023-10-25 07:42:37.366353"]]
+  [1m[36mTRANSACTION (112.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = ? AND "comments"."commentable_type" = ?[0m  [["commentable_id", 1], ["commentable_type", "Image"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("content", "commentable_type", "commentable_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "comment 1.jpg"], ["commentable_type", "Image"], ["commentable_id", 1], ["created_at", "2023-10-25 07:43:44.922521"], ["updated_at", "2023-10-25 07:43:44.922521"]]
+  [1m[36mTRANSACTION (125.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("content", "commentable_type", "commentable_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "comment2 1.jpg"], ["commentable_type", "Image"], ["commentable_id", 1], ["created_at", "2023-10-25 07:43:49.295302"], ["updated_at", "2023-10-25 07:43:49.295302"]]
+  [1m[36mTRANSACTION (109.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mImage Create (0.2ms)[0m  [1m[32mINSERT INTO "images" ("url", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["url", "image 2"], ["created_at", "2023-10-25 07:46:12.066526"], ["updated_at", "2023-10-25 07:46:12.066526"]]
+  [1m[36mTRANSACTION (155.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("content", "commentable_type", "commentable_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "comment for image 2"], ["commentable_type", "Image"], ["commentable_id", 2], ["created_at", "2023-10-25 07:46:35.668649"], ["updated_at", "2023-10-25 07:46:35.668649"]]
+  [1m[36mTRANSACTION (118.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
