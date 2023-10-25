@@ -34,3 +34,10 @@ en:
 
   contacts:
     contact_us: "Contact Us!"
+
+  articles:
+    article_details: 'Article details'
+
+  comments:
+    comment_leaved: 'blabla'
+

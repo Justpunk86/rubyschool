@@ -1,5 +1,9 @@
+	
 	<div class="container">
-		<div class="row">
+		<div class="row text-center">
+			<h1><%= t('articles.article_details') %></h1>
+		</div>
+		<div class="row text-center">
 			<div class="col-md-10">
 				<h3><%= @article.title %></h3><br>
 			</div>
@@ -34,9 +38,11 @@
 
 	
 	</div>
-<h3>Comments:</h3>
+
 <div class="container">
-	
+	<div class="row text-center">
+			<h3>Comments:</h3>
+		</div>
 		
 			<% @article.comments.each do |comment| %>
 				
@@ -53,9 +59,6 @@
 	
 </div>
 
-
-	
-
 	
 		<h3>Leave new comment:</h3>
 
@@ -70,7 +73,8 @@
 			<%= f.text_area :body, size: '30x10' %>
 		</p>
 		<p>
-			<%=	f.submit 'Leave comment' %>
+			<%=	f.submit t('comments.comment_leaved') %>
+
 		</p>
 	<% end %>
 

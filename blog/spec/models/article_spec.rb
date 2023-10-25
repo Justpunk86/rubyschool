@@ -15,9 +15,9 @@ describe Article, type: :model do
   describe "#subject" do
     it "returns the article title" do
       #create object Aricle another variant
-      aricle = create(:article, title: 'Lorem Ipsum')
+      article = create(:article, title: 'Lorem Ipsum')
 
-      expect(aricle.subject).to eq 'Lorem Ipsum'
+      expect(article.subject).to eq 'Lorem Ipsum'
     end
   end  
 

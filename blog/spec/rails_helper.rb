@@ -4,9 +4,17 @@ ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
+#Dir[::Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+
 require 'rspec/rails'
-require 'support/factory_bot'
 require 'capybara/rails'
+require 'capybara/rspec'
+
+require 'support/factory_bot'
+
+require 'support/session_helper'
+require 'support/database_cleaner'
+
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -23,7 +31,7 @@ require 'capybara/rails'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-# Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
+ Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
 
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
@@ -33,6 +41,7 @@ rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
 RSpec.configure do |config|
+  
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
@@ -63,6 +72,25 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+  config.before(:suite) do # выполняеться этот код перед запуском всего файла со спеками
+    DatabaseCleaner.clean_with(:truncation) #удаляются все данные при помощи стратегии truncation
+  end
+
+  config.before(:each) do # перед каждым тестом сохраняем данные в положении ТРАНЗАКЦИИ, когда данные реально НЕ ЗАПИСЫВАЮТЬСЯ в базу.
+    DatabaseCleaner.strategy = :transaction
+  end
+
+  config.before(:each, js:true) do # для каждой спеки помеченной JS-TRUE, используем стратегию truncation. Которая создаёт данные в таблице для теста и очишает её по окончанию
+    DatabaseCleaner.strategy = :truncation
+  end
+
+  config.before(:each) do # в начале каждого теста устанавливаем чистильшик базы для отслеживания изменений в базе
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do # ну и после каждого теста чистильшик подчишает базу
+    DatabaseCleaner.clean
+  end
 end
 
 Shoulda::Matchers.configure do |config|

@@ -10,10 +10,10 @@ feature "Contact Creation" do
 
   scenario "allows a guest to create contact" do
     visit '/contacts'
-    fill_in :contact_name, :with => 'temp'
-    fill_in :contact_phone, :with => '111'
-    fill_in :contact_email, :with => 'guest@example.com'
-    fill_in :contact_message, :with => 'someting'
+    fill_in :contact_name, :with => 'temp2'
+    fill_in :contact_phone, :with => '1111'
+    fill_in :contact_email, :with => 'guest2@xample.com'
+    fill_in :contact_message, :with => 'someting2'
 
     click_button 'Send message'
 
